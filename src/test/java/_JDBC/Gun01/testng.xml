@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/kilic/IdeaProjects/Cucumber_Kursu3/src/test/java/_JDBC/Gun01/_01_intro.java">
+        <classes>
+            <class name="_JDBC.Gun01._01_intro">
+                <methods>
+                    <include name="test1"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
