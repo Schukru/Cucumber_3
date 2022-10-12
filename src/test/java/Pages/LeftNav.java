@@ -1,6 +1,6 @@
 package Pages;
 
-import Utilities.GWD;
+import Utilities.GWDBasic;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class LeftNav extends Parent{
 
     public LeftNav() {
-        PageFactory.initElements(GWD.getDriver(), this);
+        PageFactory.initElements(GWDBasic.getDriver(), this);
     }
 
     @FindBy(xpath="(//span[text()='Setup'])[1]")
@@ -51,8 +51,14 @@ public class LeftNav extends Parent{
     @FindBy(xpath = "(//span[text()='Entrance Exams'])[2]")
     private WebElement entranceexamstwo;
 
-    @FindBy(css = "ms-text-field>input")
+    @FindBy(css = "ms-text-field[formcontrolname='name']>input")
     private WebElement nameInput;
+
+    @FindBy(css = "ms-text-field[formcontrolname='code']>input")
+    private WebElement codeInput;
+
+    @FindBy(css = "ms-search-button>button")
+    private WebElement searchButton;
 
     @FindBy(xpath = "//div/span[text()='Academic Period']")
     private WebElement AcademicPeriod;
@@ -65,6 +71,7 @@ public class LeftNav extends Parent{
 
     @FindBy(xpath = "(//mat-option/span[@class='mat-option-text'])[2]")
     private WebElement level1;
+
 
 
     WebElement myElement;
@@ -85,6 +92,7 @@ public class LeftNav extends Parent{
             case "period1" : myElement =period1; break;
             case "GradeLevel" : myElement =GradeLevel; break;
             case "level1" : myElement =level1; break;
+            case "searchButton" : myElement =searchButton; break;
         }
 
         clickFunction(myElement);
@@ -98,6 +106,7 @@ public class LeftNav extends Parent{
             case "integrationCode" : myElement =integrationCode; break;
             case "priority" : myElement =priority; break;
             case "nameInput" : myElement =nameInput; break;
+            case "codeInput" : myElement =codeInput; break;
         }
 
         sendKeysFunction(myElement, value);

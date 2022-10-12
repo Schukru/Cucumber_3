@@ -1,19 +1,14 @@
 package Pages;
 
-import Utilities.GWD;
-import org.openqa.selenium.By;
+import Utilities.GWDBasic;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class DialogContent extends Parent{
 
     public DialogContent() {
-        PageFactory.initElements(GWD.getDriver(), this);
+        PageFactory.initElements(GWDBasic.getDriver(), this);
     }
 
     @FindBy(id="mat-input-0")
@@ -52,16 +47,17 @@ public class DialogContent extends Parent{
     @FindBy(xpath = "//button[@aria-label='Close dialog']")
     private WebElement closeDialog;
 
-    @FindBy(xpath = "//ms-text-field[contains(@placeholder,'FIELD.NAME')]//input")
+    @FindBy(xpath = "(//div[contains(@class,'mat-form-field-infix ng-tns-c74')]//input)[1]")
     private WebElement searchInput;
 
     @FindBy(xpath = "//ms-search-button//button")
     private WebElement searchButton;
 
+
     @FindBy(xpath = "//ms-delete-button//button")
     private WebElement deleteButton;
 
-    @FindBy(xpath = "//span[contains(text()='Delete')]")
+    @FindBy(xpath = "//span[contains(text(), 'Delete')]")
     private WebElement deleteDialogBtn;
 
     @FindBy(xpath = "//button[text()='Accept all cookies']")
@@ -118,10 +114,8 @@ public class DialogContent extends Parent{
         findAndSend("searchInput", searchText); // aranacak kelimeyi kutucuğa gönder
         findAndClick("searchButton"); // arama butonuna bas
 
-//        WebDriverWait wait = new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(10));
-//        wait.until(ExpectedConditions.stalenessOf(deleteButton));
+        waitUntilLoading();
 
-        GWD.Bekle(2); // TODO: incelenecek
         findAndClick("deleteButton");// silme butonua bas
         findAndClick("deleteDialogBtn");// dilogdaki silme butonuna bas
     }

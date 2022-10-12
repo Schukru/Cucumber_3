@@ -1,6 +1,6 @@
 package Pages;
 
-import Utilities.GWD;
+import Utilities.GWDBasic;
 import junit.framework.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -20,12 +20,12 @@ public class Parent {
     }
 
     public void waitUntilVisible(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(GWDBasic.getDriver(), Duration.ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
     public void scrollToElement(WebElement element) {
-        JavascriptExecutor js = (JavascriptExecutor) GWD.getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) GWDBasic.getDriver();
         js.executeScript("arguments[0].scrollIntoView();", element);
     }
 
@@ -38,7 +38,7 @@ public class Parent {
     }
 
     public void waitUntilClickable(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(GWDBasic.getDriver(), Duration.ofSeconds(30));
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
@@ -49,7 +49,7 @@ public class Parent {
     }
 
     public void waitUntilLoading() {
-        WebDriverWait wait=new WebDriverWait(GWD.driver, Duration.ofSeconds(30));
+        WebDriverWait wait=new WebDriverWait(GWDBasic.driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.numberOfElementsToBe(By.cssSelector("fuse-progress-bar > *"), 0));
     }
 }

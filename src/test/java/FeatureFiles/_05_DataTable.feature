@@ -4,8 +4,8 @@ Feature: Datatable Functionality
     Given Navigate to basqar
     When Enter username and password and click login button
     Then User should login successfuly
-    And Accept All Cookies
 
+  @Test1
   Scenario: Create Country
     And Click on the element in the left Nav
       | setupOne   |
@@ -16,7 +16,7 @@ Feature: Datatable Functionality
       | addButton |
 
     And User sending the keys in Dialog content
-      | nameInput | ismetCoun21 |
+      | nameInput | ismetCo21 |
       | codeInput | 121233      |
 
     And Click on the element in the Dialog
@@ -25,7 +25,7 @@ Feature: Datatable Functionality
     And Success message should be displayed
 
     And User delete item from Dialog
-      | ismetCoun21 |
+      | ismetCo21 |
 
     And Success message should be displayed
 

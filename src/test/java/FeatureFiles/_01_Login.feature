@@ -3,6 +3,8 @@
 #
 
 Feature: Login girisi
+
+  @SmokeTest
   Scenario: Login icin kullanici bilgilerini kullan
 
     Given Navigate to basqar

@@ -4,18 +4,21 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.LocalDateTime;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class GWD {
+public class GWDBasic {
 
     public static WebDriver driver;
     public static WebDriver getDriver()
     {
         if (driver == null) {
+
+            Locale.setDefault( new Locale("EN"));   // extent report Türkçe
+            System.setProperty("user.language","EN");       // diliyle çalışmaması nedeniyle eklendi
 
             Logger.getLogger("").setLevel(Level.SEVERE);
             System.setProperty(org.slf4j.impl.SimpleLogger.DEFAULT_LOG_LEVEL_KEY, "Error");
@@ -54,5 +57,15 @@ public class GWD {
         }
     }
 
+    public static String tarihSaatDamgasi(){
+
+        LocalDateTime tarihSaat = LocalDateTime.now();
+        String zamanDamgasi = tarihSaat.toString();
+
+        zamanDamgasi = zamanDamgasi.replaceAll("[-.:]","_");
+        zamanDamgasi = zamanDamgasi.replaceAll("[T]"," - ");
+
+        return zamanDamgasi;
+    }
 
 }

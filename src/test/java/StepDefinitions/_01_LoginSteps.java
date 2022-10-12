@@ -1,16 +1,16 @@
 package StepDefinitions;
 
 import Pages.DialogContent;
-import Utilities.GWD;
+import Utilities.GWDBasic;
 import io.cucumber.java.en.*;
 
-public class _01_LoginSteps extends GWD{
+public class _01_LoginSteps extends GWDBasic {
 
     DialogContent dc = new DialogContent();
     @Given("Navigate to basqar")
     public void navigateToBasqar() {
-        GWD.getDriver().get("https://demo.mersys.io/");
-        GWD.getDriver().manage().window().maximize();
+        GWDBasic.getDriver().get("https://demo.mersys.io/");
+        GWDBasic.getDriver().manage().window().maximize();
     }
 
     @When("Enter username and password and click login button")
@@ -30,11 +30,7 @@ public class _01_LoginSteps extends GWD{
 //        wait.until(ExpectedConditions.visibilityOf(dc.dashboard));
 //        Assert.assertTrue(dc.dashboard.getText().contains("Dashboard"));
         dc.findAndContainsText("dashboard","Dashboard");
-
-    }
-
-    @And("Accept All Cookies")
-    public void acceptAllCookies() {
         dc.findAndClick("acceptAllCookies");
+
     }
 }
